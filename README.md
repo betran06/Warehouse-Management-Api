@@ -7,53 +7,160 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+# Warehouse Management Backend API
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Warehouse Management Backend API is a RESTful API built using Laravel 12 and MySQL.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+This system supports multi-role access control for Manager and Keeper in managing warehouse operations, merchants, products, and transactions.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🚀 Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- Authentication System
+- Role-Based Access Control (Manager & Keeper)
+- User & Role Management
+- Category Management
+- Product Management
+- Warehouse Management
+- Merchant Management
+- Transaction Management
+- RESTful API Architecture
+- Secure Middleware Protection
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 👥 Roles & Permissions
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 👨‍💼 Manager (Full Access)
 
-### Premium Partners
+Manager has full CRUD access to:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- Users
+- Roles
+- Keepers
+- Categories
+- Products
+- Warehouses
+- Warehouse Products
+- Merchants
+- Merchant Products
+- Transactions
 
-## Contributing
+### 👷 Keeper (Restricted Access)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Keeper can:
 
-## Code of Conduct
+- Read Categories
+- Read Assigned Merchant Data
+- Read Assigned Product Data
+- Create, Read, Update Transactions
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## 🏗️ Tech Stack
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- Laravel 12
+- MySQL (MAMP)
+- Eloquent ORM
+- REST API
+- Vite
+- NPM
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 📦 Installation Guide
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/your-username/warehouse-management-backend.git
+```
+
+### 2️⃣ Navigate to Project Folder
+
+```bash
+cd warehouse-management-backend
+```
+
+### 3️⃣ Install Dependencies
+
+```bash
+composer install
+npm install
+```
+
+### 4️⃣ Setup Environment File
+
+```bash
+cp .env.example .env
+```
+
+Update database configuration:
+
+```
+DB_DATABASE=warehouse_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+### 5️⃣ Generate Application Key
+
+```bash
+php artisan key:generate
+```
+
+### 6️⃣ Run Migration
+
+```bash
+php artisan migrate
+```
+
+### 7️⃣ Run Server
+
+```bash
+php artisan serve
+```
+
+### 8️⃣ Run Vite
+
+```bash
+npm run dev
+```
+
+---
+
+## 📡 API Architecture
+
+This project follows RESTful principles:
+
+- GET → Retrieve data
+- POST → Create data
+- PUT/PATCH → Update data
+- DELETE → Remove data
+
+All protected routes use authentication middleware.
+
+---
+
+## 🎯 Project Purpose
+
+This project was developed as backend training to implement:
+
+- Multi-role access control
+- Complex relational database design
+- API-based architecture
+- Warehouse and inventory business logic
+- Secure backend system design
+
+---
+
+## 👨‍💻 Author
+
+Betran Arya
+
+---
+
+## 📄 License
+
+This project is developed for educational purposes.
