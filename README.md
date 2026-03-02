@@ -157,7 +157,7 @@ This project was developed as backend training to implement:
 
 ## 👨‍💻 Author
 
-Betran Arya
+Betran Arya Pramuja
 
 ---
 
