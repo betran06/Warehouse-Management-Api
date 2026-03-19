@@ -3,8 +3,29 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illumintae\Support\Facades\Storage;
 
 class Warehouse extends Model
 {
     //
+    use SoftDeletes;
+
+    protected $fillable = ['name', 'address', 'photo', 'phone'];
+
+    public function products() 
+    {
+        return $this->belongToMany(Product::class, 'warehouse_products') //untuk cek digudang ada product apa saja
+        ->withPivot('stock')
+        ->withTimestamps();    
+    }
+
+    public function getPhotoAttribute($value)
+    {
+        if (!$value) {
+            return null;
+        }
+        
+        return url(Storage::url($value));
+    }
 }
