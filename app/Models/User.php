@@ -57,4 +57,9 @@ class User extends Authenticatable
 
         return url(Storage::url($value));
     }
+
+    public function merchant()
+    {
+        return $this->hasOne(Merchant::class, 'keeper_id', 'id');    
+    }
 }
