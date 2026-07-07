@@ -6,20 +6,20 @@ class WarehouseRepository
 {
     public function getAll(array $fields)
     {
-        return Warehouse::select($fileds)->with(['products'])->latest()->paginate(10);
+        return Warehouse::select($fields)->with(['products.category'])->latest()->paginate(10);
     }
 
     public function getById(int $id, array $fields)
     {
-        return Warehouse::select($fields)->with(['products.category'])->findOrFail($id);   
+        return Warehouse::select($fields)->with(['products.category'])->findOrFail($id);
     }
 
     public function create(array $data)
     {
-        return Warehouse::create($data);    
+        return Warehouse::create($data);
     }
 
-    public function update(int $id, array $data) 
+    public function update(int $id, array $data)
     {
         $warehouse = Warehouse::findOrFail($id);
         $warehouse->update($data);
@@ -29,7 +29,7 @@ class WarehouseRepository
     public function delete(int $id)
     {
         $warehouse = Warehouse::findOrFail($id);
-        $warehouse->delete();    
+        $warehouse->delete();
     }
 }
 
