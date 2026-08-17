@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\CategoryRequest;
+use App\Http\Requests\CategoryRequest;
 use App\Http\Resources\CategoryResource;
 use App\Services\CategoryService;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -21,9 +20,9 @@ class CategoryController extends Controller
     {
         $fields = ['id', 'name', 'photo', 'tagline'];
 
-        $categories = $this->categoryServices->getAll($fields);
+        $categories = $this->categoryService->getAll($fields);
 
-        return response()->json(CategoryResource::collection($categories));    
+        return response()->json(CategoryResource::collection($categories));
     }
 
     public function show(int $id)
@@ -45,7 +44,7 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request)
     {
         $category = $this->categoryService->create($request->validated());
-        return response()->json(new CategoryResource($category), 201);    
+        return response()->json(new CategoryResource($category), 201);
     }
 
     public function update(CategoryRequest $request, int $id)
@@ -62,7 +61,7 @@ class CategoryController extends Controller
         }
     }
 
-    public function destroy(int $id) 
+    public function destroy(int $id)
     {
         try {
             $this->categoryService->delete($id);
@@ -73,6 +72,6 @@ class CategoryController extends Controller
             return response()->json([
                 'message' => 'category not found',
             ], 404);
-        }    
+        }
     }
 }

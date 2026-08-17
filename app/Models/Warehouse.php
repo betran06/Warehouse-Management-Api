@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illumintae\Support\Facades\Storage;
+use Illuminate\Support\Facades\Storage;
 
 class Warehouse extends Model
 {
@@ -13,11 +13,11 @@ class Warehouse extends Model
 
     protected $fillable = ['name', 'address', 'photo', 'phone'];
 
-    public function products() 
+    public function products()
     {
         return $this->belongToMany(Product::class, 'warehouse_products') //untuk cek digudang ada product apa saja
-        ->withPivot('stock')
-        ->withTimestamps();    
+            ->withPivot('stock')
+            ->withTimestamps();
     }
 
     public function getPhotoAttribute($value)
@@ -25,7 +25,7 @@ class Warehouse extends Model
         if (!$value) {
             return null;
         }
-        
+
         return url(Storage::url($value));
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
-use App\Model\Warehouse;
+namespace App\Repositories;
+
+use App\Models\Warehouse;
 
 class WarehouseRepository
 {
