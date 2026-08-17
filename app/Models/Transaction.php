@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Soft;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Transaction extends Model
 {
@@ -14,7 +14,7 @@ class Transaction extends Model
 
     public function merchant() //transaksi ini dimiliki toko yang mana
     {
-        return $this->belongsTo(Merchant::class);    
+        return $this->belongsTo(Merchant::class);
     }
 
     public function transactionProducts() //dalam satu transaksi ada produk apa saja yang dibeli
