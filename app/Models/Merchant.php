@@ -15,15 +15,15 @@ class Merchant extends Model
 
     public function keeper()
     {
-        return $this->belongsTo(User::class, 'keeper_id');    
+        return $this->belongsTo(User::class, 'keeper_id');
     }
 
     public function products() //untuk mengecek ditoko tersebut ada produk apa saja
     {
-        return $this->belongToMany(Products::class, 'merchant_products')
-        ->withPivot("stock")
-        ->withPivot('warehouse_id')
-        ->withTimestamps();
+        return $this->belongToMany(Product::class, 'merchant_products')
+            ->withPivot("stock")
+            ->withPivot('warehouse_id')
+            ->withTimestamps();
     }
 
     public function transactions() // ngecek ditoko ini ada berapa transaksi
